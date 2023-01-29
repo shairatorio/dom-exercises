@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DOM</title>
+</head>
+<body>
+    <div id="container">
+        <!-- Method 1 -->
+        <button onclick="alert('Hello World')">Click Me</button>
+
+        <!-- Method 2 & Method 3 -->
+        <button id="btn">Click Me</button>
+
+        <!-- Method 1 -->
+        <button onclick="alertFunction()">CLICK ME BABY</button>
+    </div>
+</body>
+
+<script>
+    const container = document.querySelector('#container');
+
+    const paraOne = document.createElement("p");
+    const headThree = document.createElement("h3");
+    const div = document.createElement("div");
+    const headOne = document.createElement("h1");
+    const paraTwo = document.createElement("p");
+
+    paraOne.textContent = 'Hey I`m red!';
+    headThree.textContent = 'I`m a blue h3!';
+    headOne.textContent = 'I`m in a div';
+    paraTwo.textContent = 'ME TOO!'
+
+    paraOne.setAttribute('style', 'color: red');  
+    headThree.setAttribute('style', 'color: blue');  
+    div.setAttribute('style', 'color: blue; background-color: pink; border: 1px solid black;'); 
+    
+    div.classList.add('div');
+    
+    container.appendChild(paraOne);
+    container.appendChild(headThree);
+    container.appendChild(div);
+    div.appendChild(headOne);
+    div.appendChild(paraTwo);
+
+    const btn = document.querySelector('#btn');
+
+    //  Method 2
+    // btn.onclick = () => alert("Hello World");
+
+    //  Method 3
+    // Method 3 is much more flexible and powerful, though it is a bit more complex to set up.
+    btn.addEventListener('click', () => {
+        alert("Hello World");
+    });
+
+    // btn.addEventListener('click', function (e) {
+    // console.log(e);
+    // });
+
+    // btn.addEventListener('click', function (e) {
+    // console.log(e.target);
+    // });
+
+    // btn.addEventListener('click', function (e) {
+    // e.target.style.background = 'blue';
+    // });
+
+    // Method 1
+    function alertFunction() {
+        alert("YAY! YOU DID IT!");
+    }
+
+    //  Method 2
+    // btn.onclick = alertFunction;
+
+    //  Method 3
+    // btn.addEventListener('click', alertFunction);
+</script>
+
+</html>
